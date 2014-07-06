@@ -8,8 +8,9 @@
     <script>
        $(function(){
             $("#fbInfo").hide();
-        });
+        
         window.fbAsyncInit = function() {
+            debugger
             $('#log').append('<h2>fbAsyncInit</h2>');
             FB.init({
               appId      : '737970306223941', // Set YOUR APP ID      
@@ -39,7 +40,7 @@
                 }); 
 
                 };
-
+});
                 function Login()
                 {
                     $('#log').append('<h2>In login function</h2>');
@@ -85,15 +86,17 @@
     </script>
 </head>
 <body>
-<!--<div id="fb-root"></div>-->
+<div id="fb-root"></div>
 <script>
   // Load the SDK asynchronously
   (function(d){
+      debugger
+      alert('Loading FB SDK');
       $('#log').append('<h2>Loading FB SDK</h2>');
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
+     js.src = "http://connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
  
