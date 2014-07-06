@@ -10,32 +10,31 @@
             $("#fbInfo").hide();
         });
         window.fbAsyncInit = function() {
+            $('#log').append('<h2>fbAsyncInit</h2>');
             FB.init({
               appId      : '737970306223941', // Set YOUR APP ID      
               status     : true, // check login status
               cookie     : true, // enable cookies to allow the server to access the session
               xfbml      : true  // parse XFBML
             });
-        
+        $('#log').append('<h2>after FB.init</h2>');
             FB.Event.subscribe('auth.authResponseChange', function(response) 
                 {
                     console.log(response);
+                    $('#log').append('<h2>FB.Event.subscribe</h2>');
+                    $('#log').append('<h2>'+response+'</h2>');
                     if (response.status === 'connected') 
                     {
-                        document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
-                        //SUCCESS
-
+                        $('#log').append('<h2>Connected to Facebook</h2>');
+                        
                     }    
                     else if (response.status === 'not_authorized') 
                     {
-                        document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
-
+                        $('#log').append('<h2>Failed to Connect</h2>');
                         //FAILED
                     } else 
                     {
-                        document.getElementById("message").innerHTML +=  "<br>Logged Out";
-
-                        //UNKNOWN ERROR
+                        $('#log').append('<h2>Logged Out</h2>');
                     }
                 }); 
 
@@ -43,38 +42,37 @@
 
                 function Login()
                 {
-             debugger
+                    $('#log').append('<h2>In login function</h2>');
                     FB.login(function(response) {
                        if (response.authResponse) 
                        {
-                           debugger
-                            getUserInfo();
+                           getUserInfo();
                         } else 
                         {
-                         console.log('User cancelled login or did not fully authorize.');
+                            $('#log').append('<h2>User cancelled login or did not fully authorize</h2>');
+                            console.log('User cancelled login or did not fully authorize.');
                         }
                      },{scope: 'email,user_photos,user_videos'});
 
                 }
             
-        function getUserInfo() {    
-        FB.api('/me', function(response) {
-        debugger
-        $("#fbInfo").show();
-          $("#name").val(response.name);
-          $("#link").val(response.link);
-          $("#id").val(response.id);
-          $("#email").val(response.email);        
-            getPhoto();
-        });
+        function getUserInfo() {   
+            $('#log').append('<h2>In getUserInfo()</h2>');
+            FB.api('/me', function(response) {
+                  $("#fbInfo").show();
+                  $("#name").val(response.name);
+                  $("#link").val(response.link);
+                  $("#id").val(response.id);
+                  $("#email").val(response.email);        
+                getPhoto();
+            });
     }
     
     function getPhoto()
     {
-      FB.api('/me/picture?type=normal', function(response) {
-           $("#fbInfo").append("<img src='"+response.data.url+"'/>");
-          
- 
+        $('#log').append('<h2>In getPhoto()</h2>');
+        FB.api('/me/picture?type=normal', function(response) {
+        $("#fbInfo").append("<img src='"+response.data.url+"'/>");
     });
  
     }
@@ -89,9 +87,9 @@
 <body>
 <!--<div id="fb-root"></div>-->
 <script>
-  
   // Load the SDK asynchronously
   (function(d){
+      $('#log').append('<h2>Loading FB SDK</h2>');
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement('script'); js.id = id; js.async = true;
@@ -123,7 +121,7 @@
           <button style="" value="fb Login" onclick="Login()">fb Login</button>
       </div>
   </div>
-
+<div id="log" style="margin:0 auto;width:50%;text-align:center"> Logs:</div>
   <div data-role="footer" data-position="fixed">
     <h1>By Nishank singla</h1>
   </div>
