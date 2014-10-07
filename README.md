@@ -2,16 +2,15 @@ Facebook-login-with-Phonegap
 ============================
 For Successful login you need 2 things.
 
-1.) Settings in facebook app developer page
+1.) Settings in facebook app developer 
 
-create facebook app for android platform
-     set package name com.[[phonegap package name]](found in config file in "id" field)
+	    create facebook app for android platform
+       set package name com.[[phonegap package name]](found in config file in "id" field)
+       [note: if you have "com." in your name then you don't need to add com. in the beginning] 
      
-     [note: if you have "com." in your name then you don't need to add com. in the beginning]
-     
-     set Default Activity Class Name  com.[phonegap package name].MainActivity
-     
-     create key hashes 
+       set Default Activity Class Name  com.[phonegap package name].MainActivity
+       
+       create key hashes  
      
         1.) create keystore file using this link [https://github.com/amirudin/build/wiki/Android-Signing]
         
@@ -29,7 +28,6 @@ create facebook app for android platform
       
 2.)Then you need to set config file.  
 	you need to add phonegap facebook plugin (https://build.phonegap.com/plugins/257)
-    
         you need to fill the value of your app id and app name
         
     [Note: when you will add this plugin and build it using adobe phonegap build it will automatically add following JS files in your index.html
