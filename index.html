@@ -93,13 +93,12 @@
             }
             
             function login() {
-                FB.login(
-                         function(response) {
-                         if (response.status == 'connected') {
-                         alert('logged in');
-                         } else {
-                         alert('not logged in');
-                         }
+                FB.login(function(response) {
+							 if (response.status == 'connected') {
+								alert('logged in');
+							 } else {
+								alert('not logged in');
+							 }
                          },
                          { scope: "email" }
                          );
