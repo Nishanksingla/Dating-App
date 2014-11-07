@@ -5,7 +5,7 @@ For Successful login you need 2 things.
 1.) Settings in facebook app developer.
 
 	create facebook app for android platform
-        set <b>package name</b> com.[phonegap package name](found in config file in "id" field)
+        set package name com.[phonegap package name](found in config file in "id" field)
        ([note: if you have "com." in your name then you don't need to add com. in the beginning]) 
      
        set Default Activity Class Name  com.[phonegap package name].MainActivity
@@ -28,7 +28,7 @@ For Successful login you need 2 things.
       
 2.)Then you need to set config file.
 
-	you need to add phonegap facebook plugin in your config.xml file (https://build.phonegap.com/plugins/257).
+	Now you need to add phonegap facebook plugin in your config.xml file (https://build.phonegap.com/plugins/257).
 	Fill the value of your app id and app name.
 		<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		     <param name="APP_ID" value="737970306223941" />
