@@ -4,8 +4,8 @@ For Successful login you need 2 things.
 
 1.) Settings in facebook app developer.
 
-	  create facebook app for android platform
-       set package name com.[phonegap package name](found in config file in "id" field)
+	create facebook app for android platform
+        set <b>package name</b> com.[phonegap package name](found in config file in "id" field)
        ([note: if you have "com." in your name then you don't need to add com. in the beginning]) 
      
        set Default Activity Class Name  com.[phonegap package name].MainActivity
@@ -28,15 +28,23 @@ For Successful login you need 2 things.
       
 2.)Then you need to set config file.
 
-		you need to add phonegap facebook plugin (https://build.phonegap.com/plugins/257).Fill the value of your app id and app name
+	you need to add phonegap facebook plugin in your config.xml file (https://build.phonegap.com/plugins/257).
+	Fill the value of your app id and app name.
+		<gap:plugin name="com.phonegap.plugins.facebookconnect">
+		     <param name="APP_ID" value="737970306223941" />
+		     <param name="APP_NAME" value="nishanktestapp" />
+		 </gap:plugin>
         
-	    [Note: when you will add this plugin and build it using adobe phonegap build it will automatically add following JS files in your index.html
-	    <script src="cordova.js"></script>
+	    [Note: when you will add this plugin and build it using adobe phonegap build it will automatically add 
+	    facebook js sdk file in your app( you don't have to include fb sdk js file by yourself in your project)
+	    Thr following javascript files will be included in your app automatically. 
+	    	<script src="cordova.js"></script>
 		    <!-- cordova facebook plugin -->
-			<script src="cdv-plugin-fb-connect.js"></script>
+		<script src="cdv-plugin-fb-connect.js"></script>
 		    <!-- facebook js sdk -->
-			<script src="facebook-js-sdk.js"></script>
-			you don't need to add facebook javascript sdk manually. just use the facebook javascript sdk code]
+		<script src="facebook-js-sdk.js"></script>
+		You have to add these script tags in your index.html flie to use them
+		]
 		
 	Now just use the Index.html file in my folder
 	
