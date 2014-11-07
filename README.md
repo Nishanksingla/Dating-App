@@ -5,12 +5,12 @@ For Successful login you need 2 things.
 1.) Settings in facebook app developer.
 
 	create facebook app for android platform
-        set package name com.[phonegap package name](found in config file in "id" field)
+        set package name--> com.[phonegap package name](found in config file in "id" field)
        ([note: if you have "com." in your name then you don't need to add com. in the beginning]) 
      
-       set Default Activity Class Name  com.[phonegap package name].MainActivity
+       set Default Activity Class Name-->  com.[phonegap package name].MainActivity
        
-       create key hashes  
+       create key hashes--  
      
         1.) create keystore file using this link [https://github.com/amirudin/build/wiki/Android-Signing]
         
