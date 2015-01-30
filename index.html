@@ -67,7 +67,7 @@
                     alert(JSON.stringify(response.error));
                 } else {
                     $('#log').append('<label>Inside else</label></br>');
-                    $('#log').append('<p>'+response.data+'</p></br>');
+                    $('#log').append('<p>Response: '+response+'</p></br>');
                     var data = document.getElementById('data');
                     fdata = response.data;
                     console.log("fdata: " + fdata);
