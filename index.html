@@ -67,9 +67,11 @@
                     alert(JSON.stringify(response.error));
                 } else {
                     $('#log').append('<label>Inside else</label></br>');
-                    $('#log').append('<p>Response: '+response+'</p></br>');
+                    $('#log').append('<p>Response: '+JSON.stringify(response)+'</p></br>');
                     var data = document.getElementById('data');
                     fdata = response.data;
+                    $('#log').append('<p>F_Data: '+fdata+'</p></br>');
+                    $('#log').append('<p>fDataStringify: '+JSON.stringify(fdata)+'</p></br>');
                     console.log("fdata: " + fdata);
                     response.data.forEach(function (item) {
                         $('#log').append('<label>' + item.name + '</label><br/>');
